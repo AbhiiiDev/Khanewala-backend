@@ -1,7 +1,6 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "main": "./src/index.ts",
   "scripts": {
     "dev": "nodemon"
@@ -31,5 +30,6 @@
     "nodemon": "^3.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
-  }
+  },
+  "description": ""
 }
