@@ -8,7 +8,7 @@ import PaymentRoute from "./routes/payment";
 import Webhook from "./routes/webhook";
 const app = express();
 
-const allowedOrigins = ["http://localhost:5173", "https://khane-wala.vercel.app"];
+const allowedOrigins = ["http://localhost:5173", "https://khanewala.vercel.app"];
 app.use(
   cors({
     origin: allowedOrigins,
