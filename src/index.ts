@@ -38,11 +38,11 @@ app.get("/test", (req, res) => {
 });
 
 
-app.use("/api/payment", Webhook);
+// app.use("/api/payment", Webhook);
 
 app.use(express.json({ limit: "50MB" }));
-app.use("/api/payment", PaymentRoute);
-app.use("/api/v1/user", UserRoute);
+// app.use("/api/payment", PaymentRoute);
+app.use("/user", UserRoute);
 
 app.listen(8000, () => {
   console.log("server working fine on PORT: 8000");
