@@ -1,3 +1,4 @@
+import Restaurant from "../models/Restaurant";
 import User from "../models/User";
 import {Request,Response} from 'express';
 
@@ -10,8 +11,14 @@ try {
         {
             return res.status(404).json({message:'User not found'});
         }
+            let restaurantId=null;
+            if(currentUser.role==='restaurant')
+            {
+                        const restaurant = await Restaurant.findOne({ user: currentUser._id });
+                        restaurantId=restaurant?._id;
 
-        res.json(currentUser);
+            }
+        res.json({currentUser,restaurantId});
 } catch (error) {
     res.status(400).json({message:'Error while finding user'})
 }
@@ -29,7 +36,14 @@ try {
     if(existingUser)
         {
             console.log('existing user is there')
-            return res.status(200).send();
+            let restaurantId=null;
+            if(existingUser.role==='restaurant')
+            {
+                        const restaurant = await Restaurant.findOne({ user: existingUser._id });
+                        restaurantId=restaurant?._id;
+
+            }
+            return res.status(200).json({message:"User already exists",existingUser,restaurantId});
         }
 
         const newUser=new User(req.body);
